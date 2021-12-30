@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block 'content' %}
+
+<form action = "" method = "post">
+    {% csrf_token %}
+    <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Enter your todo :</label>
+        <input type="text" name = "text" class="form-control" id="exampleFormControlInput1" placeholder="Enter your todo">
+      </div>      
+      
+      <button type="submit" class="btn btn-info">Submit</button>
+
+</form>
+<br>
+<div>
+    
+    {% for d in data %}
+
+    <div class="alert alert-warning alert-dismissible" role="alert">
+        {{d}}
+        <a href="{% url 'remove_todo' todo=d%}" type="button" class="btn-close" data-bs-dismiss="alert" 
+            aria-label="Close"></a>
+    </div>
+    {% endfor %}
+
+</div>
+
+{% endblock 'content'%}
