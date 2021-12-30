@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block 'content' %}
+
+<form action = "{% url 'calc'%} " method = "post">
+    {% csrf_token %}
+    <div class="mb-3">
+        <label>Enter first number:</label>
+        <input type="number" name = "first_number" class="form-control" placeholder="First number">
+      </div>
+    <div class="mb-3">
+        <label>Enter second number:</label>
+        <input type="number" name = "second_number" class="form-control" placeholder="Second number">
+      </div>
+      
+      <button type="submit" class="btn btn-info">Calculate_Average</button>
+
+</form>
+
+    {% endblock 'content'%}
